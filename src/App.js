@@ -1,26 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Fragment } from "react"
+import "./App.css"
+import { voteAngular, voteReact, voteVuejs } from "./actions"
+import { connect } from "react-redux"
+import Results from "./components/results"
 
-function App() {
+function App(props) {
+  const handleVoteAngular = () => {
+    props.voteAngular({ name: "angular", good: false })
+  }
+  const handleVoteReact = () => {
+    props.voteReact("react")
+  }
+  const handleVoteVuejs = () => {
+    props.voteVuejs()
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <Fragment>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+          <h2>What is your favorite front-end development framework 2017?</h2>
+          <h4>Click on the logos below to vote!</h4>
+          <br />
+          <span onClick={handleVoteAngular}>angular</span>
+          <span onClick={handleVoteReact}>react</span>
+          <span onClick={handleVoteVuejs}>vue</span>
+        </div>
+      </div>
+      <hr />
+      <Results />
+    </Fragment>
+  )
 }
-
-export default App;
+export default connect(null, { voteAngular, voteReact, voteVuejs })(App)
