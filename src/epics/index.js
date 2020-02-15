@@ -1,8 +1,7 @@
 import { of } from "rxjs"
 import { catchError, switchMap, tap, map } from "rxjs/operators"
 import { ajax } from "rxjs/ajax"
-import { ofType } from "redux-observable"
-import { combineEpics } from "redux-observable"
+import { combineEpics, ofType } from "redux-observable"
 
 import {
   voteReact,
