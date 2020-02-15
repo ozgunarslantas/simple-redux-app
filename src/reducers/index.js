@@ -1,5 +1,10 @@
 import { createReducer } from "redux-act"
-import { voteAngular, voteReact, voteVuejs } from "../actions"
+import {
+  voteAngular,
+  voteReactAsync,
+  voteVueAsync,
+  asyncError,
+} from "../actions"
 
 const reducer = createReducer(
   {
@@ -7,8 +12,12 @@ const reducer = createReducer(
       ...state,
       angular: state.angular + 1,
     }),
-    [voteReact]: (state, payload) => ({ ...state, react: state.react + 1 }),
-    [voteVuejs]: (state, payload) => ({ ...state, vuejs: state.vuejs + 1 }),
+    [voteReactAsync]: (state, payload) => ({
+      ...state,
+      react: state.react + 1,
+    }),
+    [voteVueAsync]: (state, payload) => ({ ...state, vuejs: state.vuejs + 1 }),
+    [asyncError]: state => state,
   },
   {
     angular: 0,

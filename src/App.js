@@ -9,7 +9,7 @@ function App(props) {
     props.voteAngular({ name: "angular", good: false })
   }
   const handleVoteReact = () => {
-    props.voteReact("react")
+    props.voteReact("voting for react!")
   }
   const handleVoteVuejs = () => {
     props.voteVuejs()
