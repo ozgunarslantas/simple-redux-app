@@ -5,6 +5,8 @@ import { connect } from "react-redux"
 import Results from "./components/results"
 
 function App(props) {
+  // the payloads for actions are just to show what kind of payloads actions can take
+  // they have no other use for this application
   const handleVoteAngular = () => {
     props.voteAngular({ name: "angular", good: false })
   }

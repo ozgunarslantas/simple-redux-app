@@ -32,6 +32,7 @@ const vuejsEpic = action$ =>
     // both x().type and x.getType() works
     // ofType(voteReact().type),
     ofType(voteVuejs().type),
+    tap(console.log),
     switchMap(({ payload }) =>
       ajax.getJSON("https://opentdbasd.com/api.php?amount=1").pipe(
         map(voteVueAsync),
