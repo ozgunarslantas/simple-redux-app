@@ -42,7 +42,26 @@ function App(props) {
       </div>
       <hr />
       <Results />
+      <hr />
+      {props.votingInProgress && (
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          Voting in progress...
+        </div>
+      )}
     </Fragment>
   )
 }
-export default connect(null, { voteAngular, voteReact, voteVuejs })(App)
+export default connect(
+  state => ({ votingInProgress: state.votingInProgress }),
+  {
+    voteAngular,
+    voteReact,
+    voteVuejs,
+  },
+)(App)

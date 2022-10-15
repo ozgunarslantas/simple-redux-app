@@ -58,11 +58,8 @@ class Results extends Component {
     )
   }
 }
-export default connect(state => {
-  console.log(state)
-  return {
-    react: state.react,
-    angular: state.angular,
-    vuejs: state.vuejs,
-  }
-})(Results)
+export default connect(state => ({
+  react: state.react,
+  angular: state.angular,
+  vuejs: state.vuejs,
+}))(Results)
